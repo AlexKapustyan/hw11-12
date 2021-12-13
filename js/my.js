@@ -97,74 +97,7 @@ function toDoListFromUsers() {
 						inputString.value = `${listUsers[i][x].title}`
 					}
 
-					buttonAdd.onclick = () => {
-            if (!listUsers[i].length) {
-              let newObj = {
-                completed: false,
-                id: listUsers[i].id = 0,
-                title: `${textForAddItem.value}`,
-                userId: listUsers[i].userId,
-              }
-              listUsers[i].unshift(newObj)
-              const url = 'https://jsonplaceholder.typicode.com/todos'
-              fetch(url, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(listUsers[i][0]),
-                }).then((response) => response.json())
-                .then(() => {
-                  ol.innerHTML = '',
-                  createInput()
-                })
-            } else {
-              let newObjInput = {
-                completed: false,
-                id: listUsers[i][listUsers[i].length - 1].id + 1,
-                title: `${textForAddItem.value}`,
-                userId: listUsers[i][0].userId,
-              }
-              toDoLists[i].unshift(newObjInput)
-              const url = 'https://jsonplaceholder.typicode.com/todos'
-              fetch(url, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(toDoLists[i][0]),
-                }).then((response) => response.json())
-                .then(() => {
-                  list.innerHTML = '',
-                  createInput()
-                })
-            }
-          }
-
-					// buttonAdd.onclick = function (event) {						
-					// 		let li = document.createElement('li')
-					// 		ol.appendChild(li)
-
-					// 		let buttonRemove = document.createElement('button')
-					// 		li.appendChild(buttonRemove)
-					// 		buttonRemove.innerText = 'Remove'
-					// 		buttonRemove.id = 'buttonRemove'
-
-					// 		let buttonEdit = document.createElement('button')
-					// 		li.appendChild(buttonEdit)
-					// 		buttonEdit.innerText = 'Edit'
-					// 		buttonEdit.id = 'buttonEdit'
-
-					// 		buttonEdit.onclick = function (event) {
-					// 			inputString.disabled = false
-					// 			inputString.style.borderBottom = '1px solid black'
-					// 		}
-
-					// 		let inputString = document.createElement('input')
-					// 		inputString.disabled = true
-					// 		li.appendChild(inputString)
-					// 		inputString.value = `${listUsers[i][x].title}`
-					// }
+					
 				}
 			}
 			func()
